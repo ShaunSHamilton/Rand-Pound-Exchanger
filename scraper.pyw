@@ -1,5 +1,3 @@
-# Import necassary modules using: pip install requests bs4
-
 import requests
 from bs4 import BeautifulSoup
 import smtplib
@@ -17,11 +15,11 @@ toaster = ToastNotifier()
 # Set target for rand to drop to
 rand_target = 17.00
 # Enter respective sender and receiver email addresses
-sender = 'shauhami020@gmail.com'
-receiver = 'shauhami@waterforduwc.net'
+sender = 'SENDER_EMAIL'
+receiver = 'RECEIVER_EMAIL'
 
 # Input password for sender email only!
-password = 35221234
+password = int('PASSWORD')
 rand_time = {}
 def check_price():
     page = requests.get(URL,headers=headers)
@@ -42,11 +40,11 @@ def check_price():
 
 def add_file(date,rand):
     rand_time[date] = f"{rand}"
-    with open ('C:/Users/shauh/Documents/Code/Python/rand_times.json') as my_dict:
+    with open ('full/path/rand_times.json') as my_dict:
         data = json.load(my_dict)
     data.update(rand_time)
 
-    with open("C:/Users/shauh/Documents/Code/Python/rand_times.json",'w') as my_dict:
+    with open("full/path/rand_times.json",'w') as my_dict:
         json.dump(data,my_dict)
 
 def excel(date, rand):
